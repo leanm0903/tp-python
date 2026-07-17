@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Bonos y ONs</title>
+    <style>
+        /* Estilos base: Modo oscuro moderno */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-section {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px dashed #444;
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s;
+        }
+
+        .upload-section:hover {
+            border-color: #8a2be2; /* Acento violeta */
+        }
+
+        input[type="file"] {
+            color: #e0e0e0;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #8a2be2; 
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: #8a2be2;
+            font-weight: 600;
+        }
+
+        #loader {
+            display: none;
+            color: #8a2be2;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        #results-container {
+            display: none;
+        }
+    </style>
+    <!-- Vinculamos el archivo JS externo -->
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Analizador de Bonos y ONs</h2>
+        
+        <div class="upload-section">
+            <label for="csvFileInput" style="display: block; margin-bottom: 10px;">Subí tu dataset (CSV):</label>
+            <input type="file" id="csvFileInput" accept=".csv" />
+        </div>
+
+        <div id="loader">⚙️ Procesando pipeline de datos y consultando al LLM...</div>
+
+        <div id="results-container">
+            <div class="card">
+                <h3>Resumen Ejecutivo (AI)</h3>
+                <p id="llm-insight-text"></p>
+            </div>
+
+            <div class="card">
+                <h3>Métricas Procesadas (Pandas)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Precio Promedio</th>
+                            <th>Volatilidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body">
+                        <!-- Las filas se inyectan acá vía JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
