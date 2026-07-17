@@ -23,7 +23,7 @@ fileInput.addEventListener('change', async (event) => {
 
     try {
         // 3. Hacer la petición POST al backend (FastAPI)
-        const respuesta = await fetch('http://localhost:8000/api/analisis-bonos', {
+        const respuesta = await fetch('https://tp-python-m77v.onrender.com/api/analisis-bonos', {
             method: 'POST',
             body: formData
         });
