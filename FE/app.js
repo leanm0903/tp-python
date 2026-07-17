@@ -35,8 +35,7 @@ fileInput.addEventListener('change', async (event) => {
         const datos = await respuesta.json();
 
         // 4. Inyectar el texto del LLM
-        llmText.textContent = datos.analisis_llm;
-
+        llmText.innerHTML = datos.analisis_llm;
         // 5. Generar las filas de la tabla con los datos de Pandas
         datos.metricas.forEach(fila => {
             const tr = document.createElement('tr');
