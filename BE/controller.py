@@ -54,7 +54,7 @@ async def analizar_bonos(archivo: UploadFile = File(...)):
     {contexto_datos}
 
     Escribe un resumen ejecutivo breve destacando qué activo tiene mayor volatilidad y si representa una oportunidad de mercado.
-    IMPORTANTE: Tu respuesta debe estar formateada estrictamente en HTML (usa <h3>, <p>, <ul>, <b>). No uses markdown ni incluyas la etiqueta ```html al principio.
+    Escribe solo un parrafo separados por puntos y comas, sin encabezados ni títulos.
     """
 
     completion = client.chat.completions.create(
