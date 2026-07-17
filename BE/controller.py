@@ -23,7 +23,7 @@ TOKEN_HF = os.environ.get("HF_TOKEN", "TU_TOKEN_AQUI")
 
 client = OpenAI(
     base_url="https://router.huggingface.co/v1",
-    api_key="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",
+    api_key="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",
 )
 
 @app.get("/api/health")
